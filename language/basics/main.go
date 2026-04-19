@@ -5,6 +5,7 @@ package main
 import (
 	"basics/functions"
 	importexport "basics/import_export"
+	"basics/variables"
 	"fmt"
 	"log"
 )
@@ -12,11 +13,12 @@ import (
 // main() function - where program runs
 func main() {
 	fmt.Println("===== basics main.go =====")
-	var numOfOptions = 2
+	var numOfOptions = 4
 	for {
 		fmt.Println(`Choose function to run: 
 1. runImportExport()
 2. runFunctions()
+3. runVariables()
 0. Exit`)
 
 		fmt.Print(">> ")
@@ -37,13 +39,14 @@ func main() {
 			break
 		}
 
-		// runs respective chosen function
-		switch inputOption {
-		case 1:
-			runImportExport()
-		case 2:
-			runFunctions()
+		var runnableFunctions = []func(){
+			runImportExport,
+			runFunctions,
+			runVariables,
 		}
+
+		// runs respective chosen function
+		runnableFunctions[inputOption - 1]()
 
 		// adds separators and new lines after each run
 		fmt.Println("=================================")
@@ -82,4 +85,9 @@ func runFunctions() {
 	fmt.Println("Simulation of y = (x + 2)²")
 	y := functions.Add2(3, functions.Square)
 	fmt.Println("x = 3; y =", y)
+}
+
+// option 3
+func runVariables() {
+	variables.MainRun()
 }
