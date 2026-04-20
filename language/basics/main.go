@@ -3,6 +3,7 @@
 package main
 
 import (
+	flowcontrol "basics/flow_control"
 	"basics/functions"
 	importexport "basics/import_export"
 	"basics/variables"
@@ -19,6 +20,7 @@ func main() {
 1. runImportExport()
 2. runFunctions()
 3. runVariables()
+4. runFlowControl()
 0. Exit`)
 
 		fmt.Print(">> ")
@@ -43,6 +45,7 @@ func main() {
 			runImportExport,
 			runFunctions,
 			runVariables,
+			runFlowControl,
 		}
 
 		// runs respective chosen function
@@ -90,4 +93,9 @@ func runFunctions() {
 // option 3
 func runVariables() {
 	variables.MainRun()
+}
+
+// option 4
+func runFlowControl() {
+	flowcontrol.Init()
 }
