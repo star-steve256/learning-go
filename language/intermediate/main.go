@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	errorhandling "intermediate/error_handling"
 	"intermediate/pointers"
 	"log"
 )
@@ -11,10 +12,11 @@ import (
 // main() function - where program runs
 func main() {
 	fmt.Println("===== intermediate main.go =====")
-	var numOfOptions = 1
+	var numOfOptions = 2
 	for {
 		fmt.Println(`Choose function to run: 
 1. runPointers()
+2. runErrorHandling()
 0. Exit`)
 
 		fmt.Print(">> ")
@@ -37,6 +39,7 @@ func main() {
 
 		var runnableFunctions = []func(){
 			runPointers,
+			runErrorHandling,
 		}
 
 		// runs respective chosen function
@@ -52,4 +55,9 @@ func main() {
 // option 1
 func runPointers() {
 	pointers.Init()
+}
+
+// option 2
+func runErrorHandling() {
+	errorhandling.Init()
 }
