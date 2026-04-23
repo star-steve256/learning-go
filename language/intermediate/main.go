@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	arraysslicesstructs "intermediate/arrays_slices_structs"
 	errorhandling "intermediate/error_handling"
 	"intermediate/pointers"
 	"log"
@@ -12,11 +13,12 @@ import (
 // main() function - where program runs
 func main() {
 	fmt.Println("===== intermediate main.go =====")
-	var numOfOptions = 2
+	var numOfOptions = 3
 	for {
 		fmt.Println(`Choose function to run: 
 1. runPointers()
 2. runErrorHandling()
+3. run ArrSlicesStructs()
 0. Exit`)
 
 		fmt.Print(">> ")
@@ -40,6 +42,7 @@ func main() {
 		var runnableFunctions = []func(){
 			runPointers,
 			runErrorHandling,
+			runArrSlicesStructs,
 		}
 
 		// runs respective chosen function
@@ -60,4 +63,9 @@ func runPointers() {
 // option 2
 func runErrorHandling() {
 	errorhandling.Init()
+}
+
+// option 3
+func runArrSlicesStructs() {
+	arraysslicesstructs.Init()
 }
