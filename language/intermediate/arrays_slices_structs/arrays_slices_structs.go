@@ -4,6 +4,7 @@ import "fmt"
 
 func Init() {
 	initArr()
+	initStructs()
 }
 
 func initArr() {
@@ -61,5 +62,43 @@ func initArr() {
 }
 
 func initStructs() {
-	// for another day ig? : )
+	// structs serve the purpose of objects (kinda?)
+	
+	// defines a type
+	type Fruit struct {
+		Name string
+		Color string
+		Flavor string
+	}
+
+	// struct init
+	var apple1 = Fruit{"apple", "red", "sweet"}
+	var orange1 = Fruit{"orange", "orange", "sweet"}
+	fmt.Println("Apple:", apple1)
+	fmt.Println("Orange:", orange1)
+
+	// use property syntax for structs
+	fmt.Println("Flavour of apple1:", apple1.Flavor)
+
+	// let's try referencing pointer here too : )
+
+	var apple2 = &apple1
+
+	apple2.Color = "apple 2 color"
+	// it changes as in referenced value
+	fmt.Println("Apple1 color:", apple1.Color)
+	fmt.Println("Apple2 color:", apple2.Color)
+
+	*apple2 = apple1
+	apple2.Color = "new new apple 2 color"
+	// after de-referencing and copying
+	fmt.Println("Apple1 color:", apple1.Color)
+	fmt.Println("Apple2 color:", apple2.Color)
+
+	// uses new to allocate new memory
+	apple2 = new(Fruit)
+	apple2.Color = "third change"
+	// after de-referencing and copying
+	fmt.Println("Apple1 color:", apple1.Color)
+	fmt.Println("Apple2 color:", apple2.Color)
 }
