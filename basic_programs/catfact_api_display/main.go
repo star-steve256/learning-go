@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"sync"
 )
 
 // DISCLAIMER
@@ -29,12 +30,15 @@ func main() {
 			requestApi(1)
 		} else if optionInput == 2 {
 			var numOfApiCalls int
+			var wg sync.WaitGroup
 			fmt.Print("Number of API calls >> ")
 			fmt.Scan(&numOfApiCalls)
 
 			for i := 0; i < numOfApiCalls; i++ {
-				requestApi(i + 1)
+				wg.Go(func() { requestApi(i) })
 			}
+
+			wg.Wait()
 		} else if optionInput == 0 {
 			break
 		}
