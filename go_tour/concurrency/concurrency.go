@@ -21,6 +21,8 @@ func InitConcurrency() {
 
 	fmt.Println("Total count:", totalCount)
 	fmt.Println("Total time of all routines:", totalTime, "ms")
+
+	fmt.Println()
 }
 
 func addToCount(total *int64, totalTime *int64) {
