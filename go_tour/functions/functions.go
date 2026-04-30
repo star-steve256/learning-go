@@ -19,6 +19,8 @@ func InitFunctions() {
 	// long password
 	validatePasswordAndPass("helloworld", printPasswordSuccess)
 
+	fmt.Println("3 + 2 =", add(3, 2))
+
 	fmt.Println()
 }
 
@@ -43,4 +45,10 @@ func validatePasswordAndPass(password string, next func(password string)) {
 func printPasswordSuccess(password string) {
 	fmt.Println("Password updated successfully.")
 	fmt.Println("Password:", password)
+}
+
+// return without specifying return values
+func add(x int, y int) (res int) {
+	res = x + y
+	return
 }
